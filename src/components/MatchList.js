@@ -5,14 +5,15 @@ import Match from './Match';
 
 function MatchList(props) {
 
-  const matches = props.matchData.map((match) => {
+  const matches = props.matchData.map(match => {
+
     return (
       <Match
+        key={match.matchNumber}
         players={match.players}
         winner={match.winner}
-        scoreDifference={match.scoreDifference}
-      />
-    );
+        scoreDifference={match.scoreDifference} 
+      />)
   });
   
   return (
@@ -21,5 +22,6 @@ function MatchList(props) {
       {matches}
     </section>
   );
+}
 
 export default MatchList;
