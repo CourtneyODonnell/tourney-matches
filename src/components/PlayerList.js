@@ -1,15 +1,11 @@
-//import the player component
 // PlayerList.js
-import matchData from '../data/matchData';
-import playerData from '../data/playerData';
-import { preparePlayerData, addWinsToPlayers } from '../helpers/playerHelpers';
-import Player from "./Player";
 
-function PlayerList(props) {
+import React from 'react';
+import Player from './Player';
 
-  const playerDataArray = preparePlayerData(playerData);
-  const parsedPlayerData = addWinsToPlayers(playerDataArray, matchData);
-  const onePlayer = parsedPlayerData[0];
+function PlayerList(props) {  
+
+  const onePlayer = props.playerData[0];
 
   return (
     <section className="PlayerList">

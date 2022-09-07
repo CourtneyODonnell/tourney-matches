@@ -1,19 +1,25 @@
 // MatchList.js
 
-import React from "react"; //optional
-
-import matchData from '../data/matchData';
-import Match from "./Match";
-
+import React from 'react';
+import Match from './Match';
 
 function MatchList(props) {
-  const oneMatch = matchData[0];
+
+  const matches = props.matchData.map((match) => {
+    return (
+      <Match
+        players={match.players}
+        winner={match.winner}
+        scoreDifference={match.scoreDifference}
+      />
+    );
+  });
+  
   return (
     <section className="PlayerList MatchList">
       <h1>Match list</h1>
-      <Match players={oneMatch.players} winner={oneMatch.winner} scoreDifference={oneMatch.scoreDifference} />
+      {matches}
     </section>
   );
-}
 
 export default MatchList;
